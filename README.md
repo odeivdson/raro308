@@ -35,8 +35,10 @@ API de paginação
 
 ## Execução do app
 
-[Documentação API](http://localhost:8000/v1/)
+[API - Localhost](http://localhost:8000/v1/)
 ```bash
+$ sudo chmod +x .docker/entrypoint.sh 
+
 # watch mode
 $ docker-compose up
 ```
