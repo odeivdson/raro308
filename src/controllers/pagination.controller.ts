@@ -14,8 +14,6 @@ export class PaginationController {
     @Query('currentPage', ParseIntPipe) currentPage: number,
     @Query('numberPages', ParseIntPipe) numberPages: number,
   ) {
-    await this.paginationService.validate(currentPage, numberPages);
-
     return await this.paginationService.findPage(currentPage, numberPages);
   }
 }

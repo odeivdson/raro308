@@ -107,8 +107,45 @@ export class PaginationService {
   }
 
   async findPage(currentPage: number, numberPages: number) {
+    await this.validate(currentPage, numberPages);
     try {
       return getPagination(currentPage, numberPages);
+    } catch (error) {
+      console.error(error);
+      throw new HttpException(
+        'Invalid data. It was not possible to perform the paging',
+        HttpStatus.INTERNAL_SERVER_ERROR,
+      );
+    }
+  }
+
+  async calculationStartEndPosition(currentPage: number, numberPages: number) {
+    await this.validate(currentPage, numberPages);
+    try {
+      return calculationStartEndPosition(currentPage, numberPages);
+    } catch (error) {
+      console.error(error);
+      throw new HttpException(
+        'Invalid data. It was not possible to perform the paging',
+        HttpStatus.INTERNAL_SERVER_ERROR,
+      );
+    }
+  }
+
+  async setItemsOnArray(
+    currentPage: number,
+    numberPages: number,
+    startPosition: number,
+    endPosition: number,
+  ) {
+    await this.validate(currentPage, numberPages);
+    try {
+      return setItemsOnArray(
+        currentPage,
+        numberPages,
+        startPosition,
+        endPosition,
+      );
     } catch (error) {
       console.error(error);
       throw new HttpException(
