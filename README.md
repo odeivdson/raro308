@@ -41,6 +41,12 @@ API de paginação
 $ docker-compose up
 ```
 
+## Testes
+```bash
+$ npm run test
+$ npm run test:e2e
+```
+
 ## License
 
 Nest is [MIT licensed](https://www.apache.org/licenses/LICENSE-2.0.html).
